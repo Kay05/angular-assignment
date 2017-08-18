@@ -11,7 +11,7 @@ export class EmployeeService {
       const emps = response.json();
       if (emps) {
         // store user details and token in local storage to keep user logged in between page refreshes
-        console.log(emps);
+        // console.log(emps);
         localStorage.setItem('emps', JSON.stringify(emps));
       }
 
@@ -25,7 +25,7 @@ export class EmployeeService {
       const fil = response.json();
       if (fil) {
         // store user details and token in local storage to keep user logged in between page refreshes
-        console.log(fil);
+        // console.log(fil);
         localStorage.setItem('filtered', JSON.stringify(fil));
       }
 
@@ -39,7 +39,7 @@ export class EmployeeService {
       const empMe = response.json();
       if (empMe) {
         // store user details and token in local storage to keep user logged in between page refreshes
-        console.log(empMe);
+        // console.log(empMe);
         localStorage.setItem('empMe', JSON.stringify(empMe));
       }
 

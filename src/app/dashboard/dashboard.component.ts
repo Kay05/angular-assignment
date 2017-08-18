@@ -19,10 +19,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.employees = JSON.parse(localStorage.getItem('emps'));
+    // this.employees = JSON.parse(localStorage.getItem('emps'));
     this.loadMe();
     this.loadAllEmployees();
-    console.log('Inside Oninit' + this.employees);
+    // console.log('Inside Oninit' + this.employees);
   }
 
   private loadAllEmployees() {
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     this.employeeService.getAll().subscribe(
       employees => {
         this.employees = employees;
-        console.log(this.employees[0]);
+        // console.log(this.employees[0]);
       },
       error => {
         // this.alertService.error(error);

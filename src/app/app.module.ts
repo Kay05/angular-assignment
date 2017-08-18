@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {AuthGuard} from './guards/index';
 import {UserService, EmployeeService, AuthenticateService} from './services/index';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 
@@ -19,6 +20,7 @@ import {UserService, EmployeeService, AuthenticateService} from './services/inde
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard',      component: DashboardComponent, canActivate: [AuthGuard] },
+  // { path: 'view-employees',      component: DashboardComponent, canActivate: [AuthGuard] },
   /*{
     path: 'heroes', component: HeroListComponent,
     data: { title: 'Heroes List' }
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule.forRoot(
