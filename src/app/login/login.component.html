@@ -1,0 +1,30 @@
+<div class="auth">
+  <div class="auth-container">
+    <div class="card">
+      <header class="auth-header">
+        <h1 class="auth-title">
+          <div class="logo">
+            <span class="l l1"></span><span class="l l2"></span><span class="l l3"></span><span class="l l4"></span><span class="l l5"></span>
+          </div>
+          {{title}}
+        </h1>
+      </header>
+      <div class="auth-content">
+        <p class="text-xs-center">LOGIN TO CONTINUE</p>
+        <form id="login-form" #f="ngForm" (ngSubmit)="f.form.valid && login($event, username.value, password.value)" novalidate>
+          <div class="form-group">
+            <label for="user_name">Username</label>
+            <input class="form-control underlined" id="user_name" #username name="username"  placeholder="Your username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control underlined" #password id="password" name="password" placeholder="Your password">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-block btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

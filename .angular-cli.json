@@ -19,9 +19,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../src/assets/css/vendor.css",
+        "../src/assets/css/app.css",
+        "../src/assets/css/app-seagreen.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../src/assets/js/vendor.js",
+        "../src/assets/js/app.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
