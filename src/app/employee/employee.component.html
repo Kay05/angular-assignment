@@ -64,6 +64,7 @@
             <p class="btn btn-block btn-oval btn-info-outline">  Details</p>
             <ul class="list-group no-margin">
               <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-birthday-cake"> </i> Birthday: </span> <b> {{emp.birth_date}}</b></li>
+              <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-user-secret"> </i> Position: </span> <b> {{emp.position.name}}</b></li>
               <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-phone"> </i> Phone: </span> <b> {{emp.phone_number}}</b></li>
               <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-male"> </i><i class="fa fa-female"> </i> Gender: </span> <b> {{emp.gender === "M" ? 'Male':'Female'}}</b></li>
               <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-github"> </i> GitHub User: </span> <b> {{emp.github_user}}</b></li>

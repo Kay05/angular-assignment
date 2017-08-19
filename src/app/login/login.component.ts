@@ -9,7 +9,7 @@ import {AuthenticateService} from '../services/authenticate.service';
 })
 export class LoginComponent implements OnInit {
   title = 'Angular App';
-  //user: any = {};
+  // user: any = {};
   loading = false;
   returnUrl: string;
 

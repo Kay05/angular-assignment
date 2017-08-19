@@ -1,15 +1,3 @@
-<!--<div class="col-md-6 col-md-offset-3">
-  <h1>Hi {{currentUser.username}}!</h1>
-  <p>You're logged in with Angular 2!!</p>
-  <h3>All registered users:</h3>
-  <ul>
-    <li *ngFor="let emp of employees">
-      {{'Emp email ' + emp.email}}
-      - <a >Delete</a>
-    </li>
-  </ul>
-  <p><a [routerLink]="['/login']">Logout</a></p>
-</div>-->
 <article class="content dashboard-page">
   <section class="section">
     <div class="row">
@@ -31,13 +19,13 @@
         <div class="card card-primary">
           <div class="card-header">
             <div class="header-block">
-              <p class="title"> Birthday</p>
+              <p class="title"> Your Reviews </p>
             </div>
           </div>
           <div class="card-block">
-            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">2</p>
+            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">{{employee.employee_review.length}}</p>
           </div>
-          <div class="card-footer"> Number of birthdays this month </div>
+          <div class="card-footer"> Number of reviews </div>
         </div>
       </div>
       <!-- /.col-xl-4 -->
@@ -45,13 +33,55 @@
         <div class="card card-primary">
           <div class="card-header">
             <div class="header-block">
-              <p class="title"> Reviews </p>
+              <p class="title"> Front End Developers</p>
             </div>
           </div>
           <div class="card-block">
-            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">5</p>
+            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">{{emp_fe.length}}</p>
           </div>
-          <div class="card-footer"> Number of reviews </div>
+          <div class="card-footer"> Number of Front End Developers</div>
+        </div>
+      </div>
+      <!-- /.col-xl-4 -->
+      <div class="col-xl-4">
+        <div class="card card-primary">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title"> Backend Developer</p>
+            </div>
+          </div>
+          <div class="card-block">
+            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">{{emp_be.length}}</p>
+          </div>
+          <div class="card-footer"> Number of Backend Developers </div>
+        </div>
+      </div>
+      <!-- /.col-xl-4 -->
+      <div class="col-xl-4">
+        <div class="card card-primary">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title"> Female Employees</p>
+            </div>
+          </div>
+          <div class="card-block">
+            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">{{emp_f.length}}</p>
+          </div>
+          <div class="card-footer"> Number of Female Employees </div>
+        </div>
+      </div>
+      <!-- /.col-xl-4 -->
+      <div class="col-xl-4">
+        <div class="card card-primary">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title"> Male Employees</p>
+            </div>
+          </div>
+          <div class="card-block">
+            <p class="btn btn-pill-left btn-secondary" style="font-size:25px;">{{emp_m.length}}</p>
+          </div>
+          <div class="card-footer"> Number of Male Employees </div>
         </div>
       </div>
       <!-- /.col-xl-4 -->
