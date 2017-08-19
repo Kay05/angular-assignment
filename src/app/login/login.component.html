@@ -11,6 +11,7 @@
       </header>
       <div class="auth-content">
         <p class="text-xs-center">LOGIN TO CONTINUE</p>
+        <app-alert></app-alert>
         <form id="login-form" #f="ngForm" (ngSubmit)="f.form.valid && login($event, username.value, password.value)" novalidate>
           <div class="form-group">
             <label for="user_name">Username</label>

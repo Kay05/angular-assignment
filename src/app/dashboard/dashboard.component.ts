@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import {UserService} from "../services/user.service";
 import {Employee} from '../models/employee';
-import {EmployeeService} from '../services/employee.service';
+import {EmployeeService, AlertService} from '../services/index';
 import {User} from '../models/user';
 
 @Component({
@@ -18,7 +17,7 @@ export class DashboardComponent implements OnInit {
   emp_f: Employee[] = [];
   employee: Employee;
 
-  constructor(private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService, private alertService: AlertService) {
     this.currentUser = JSON.parse(localStorage.getItem('currUser'));
   }
 
@@ -44,13 +43,16 @@ export class DashboardComponent implements OnInit {
         // console.log(this.employees[0]);
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
   }
 
   private loadGen(x) {
-    this.employeeService.getByFilter('?gender=' + x).subscribe(
+    this.employeeService.getByFilter('?=' + x).subscribe(
       employees => {
         if (x === 'M') {
           this.emp_m = employees;
@@ -60,8 +62,11 @@ export class DashboardComponent implements OnInit {
         // console.log(this.employees[0]);
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
   }
 
@@ -73,8 +78,11 @@ export class DashboardComponent implements OnInit {
          // console.log(this.employees[0]);
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
   }
 
@@ -85,8 +93,11 @@ export class DashboardComponent implements OnInit {
         // console.log(this.employee);
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
   }
 }

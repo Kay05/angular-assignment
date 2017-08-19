@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee, User} from '../models/index';
-import {EmployeeService} from '../services/index';
+import {EmployeeService, AlertService} from '../services/index';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   emp: Employee;
   currentUser: User;
 
-  constructor(private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService, private alertService: AlertService) {
     this.currentUser = JSON.parse(localStorage.getItem('currUser'));
   }
 
@@ -26,8 +26,11 @@ export class ProfileComponent implements OnInit {
         console.log(this.emp);
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
   }
 

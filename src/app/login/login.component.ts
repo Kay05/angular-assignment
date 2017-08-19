@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthenticateService} from '../services/authenticate.service';
+import {AuthenticateService, AlertService} from '../services/index';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticateService) {}
-  // private alertService: AlertService) { }
+    private authenticationService: AuthenticateService,
+    private alertService: AlertService) {}
 
   ngOnInit() {
     // reset login status
@@ -38,8 +38,12 @@ export class LoginComponent implements OnInit {
           console.log('Success => data' + data);
         },
         error => {
-          // this.alertService.error(error);
-          console.log('Errrorrrrr!!!!!');
+          if (error.status === 400) {
+            this.alertService.error('Unable to log in with provided credentials');
+          }else {
+            this.alertService.error('Please check your internet');
+          console.log(error);
+          }
           this.loading = false;
         });
   }

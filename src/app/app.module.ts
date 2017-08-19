@@ -10,9 +10,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {AuthGuard} from './guards/index';
-import {UserService, EmployeeService, AuthenticateService} from './services/index';
+import {UserService, EmployeeService, AuthenticateService, AlertService} from './services/index';
 import { EmployeeComponent } from './employee/employee.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     EmployeeComponent,
-    ProfileComponent
+    ProfileComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule.forRoot(
@@ -52,7 +54,7 @@ const appRoutes: Routes = [
   providers: [
     AuthGuard, AuthenticateService,
     EmployeeService,
-    UserService,
+    UserService, AlertService
   ],
   bootstrap: [AppComponent]
 })

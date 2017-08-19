@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../models/user';
 import {UserService} from '../services/user.service';
+import { Location } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +12,16 @@ import {UserService} from '../services/user.service';
 export class HeaderComponent implements OnInit {
   user: User;
   currentUser: User;
-  constructor(private userService: UserService) {
+  p: any;
+  constructor(private userService: UserService, location: Location, router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currUser'));
+    router.events.subscribe((val) => {
+      if(location.path() !== '') {
+        this.p = location.path();
+      } else {
+        this.p = '/dashboard';
+      }
+    });
   }
 
   ngOnInit() {

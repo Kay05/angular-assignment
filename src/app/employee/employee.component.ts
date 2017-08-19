@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee, User, Filter} from '../models/index';
-import {EmployeeService} from '../services/employee.service';
-import {forEach} from "@angular/router/src/utils/collection";
+import {EmployeeService, AlertService} from '../services/index';
 
 @Component({
   selector: 'app-employee',
@@ -12,7 +11,7 @@ export class EmployeeComponent implements OnInit {
   currentUser: User;
   employees: Employee[] = [];
   data: Filter;
-  constructor(private employeeService: EmployeeService) {
+  constructor(private employeeService: EmployeeService, private alertService: AlertService) {
   this.data = new Filter();
   this.currentUser = JSON.parse(localStorage.getItem('currUser'));
 }
@@ -29,11 +28,15 @@ ngOnInit() {
     this.employeeService.getByFilter(x).subscribe(
       employees => {
         this.employees = employees;
-        // console.log(this.employees[0]);
+        this.alertService.success('Search Complete');
+
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
 
     console.log(x);
@@ -57,8 +60,11 @@ ngOnInit() {
         // console.log(this.employees[0]);
       },
       error => {
-        // this.alertService.error(error);
-        console.log('Errrorrrrr!!!!!');
+        if (error._body) {
+          this.alertService.error(error._body);
+        }else {
+          console.log(error);
+        }
       });
   }
 
