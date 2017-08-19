@@ -11,29 +11,40 @@
           </div>
         </div>
         <div class="items-search">
-          <form class="form-inline">
+          <form class="form-inline" (ngSubmit)="filter()">
             <div class="input-group">
-              <input type="text" class="form-control boxed rounded-s xx-search" title="filter by race" placeholder="Race...">
+              <select class="form-control boxed rounded-s" [(ngModel)]="data.race" name="race" title="Filter by race">
+                <option selected value="">Select Race</option>
+                <option value="B">Black African</option>
+                <option value="C">Coloured</option>
+                <option value="I">Coloured or Asian</option>
+                <option value="W">White</option>
+                <option value="N">None Dominant</option>
+              </select>
             </div>
             <div class="input-group">
-                <input type="number" class="form-control boxed rounded-s xx-search" title="Filter by position" placeholder="Position...">
+                <input type="number" class="form-control boxed rounded-s xx-search" [(ngModel)]="data.position" name="position" min="0" title="Filter by position" placeholder="Position...">
             </div>
             <div class="input-group">
-              <input type="number" class="form-control boxed rounded-s xx-search" title="Filter with start date range" placeholder="Start date range...">
+              <input type="number" class="form-control boxed rounded-s xx-search" [(ngModel)]="data.start_date_range" name="start_date_range" min="0" title="Filter with start date range" placeholder="Start date range...">
             </div>
             <div class="input-group">
-              <input type="number" class="form-control boxed rounded-s xx-search" title="Filter user" placeholder="User...">
+              <input type="number" class="form-control boxed rounded-s xx-search" [(ngModel)]="data.user" name="user" min="0" title="Filter user" placeholder="User...">
             </div>
             <div class="input-group">
-              <input type="text" class="form-control boxed rounded-s xx-search" title="Filter by gender" placeholder="Gender...">
+              <select class="form-control boxed rounded-s xx-search" [(ngModel)]="data.gender" name="gender" title="Filter by gender">
+                <option selected value="">Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
             </div>
             <div class="input-group">
-              <input type="number" class="form-control boxed rounded-s xx-search" title="Filter by birth date range" placeholder="birth date range...">
+              <input type="number" class="form-control boxed rounded-s xx-search" [(ngModel)]="data.birth_date_range" name="birth_date_range" min="0" title="Filter by birth date range" placeholder="birth date range...">
             </div>
             <div class="input-group">
-              <input type="text" class="form-control boxed rounded-s xx-search" title="Filter by email:enter part of email" placeholder="Email...">
+              <input type="text" class="form-control boxed rounded-s xx-search" [(ngModel)]="data.email__contains" name="email" title="Filter by email:enter part of email" placeholder="Email...">
               <span class="input-group-btn">
-                  <button class="btn btn-secondary rounded-s" disabled type="button">
+                  <button class="btn btn-secondary rounded-s" title="blank search returns all employees" type="submit">
                     <i class="fa fa-search"></i>
                   </button>
               </span>

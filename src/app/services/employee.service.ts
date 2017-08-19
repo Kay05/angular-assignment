@@ -20,6 +20,9 @@ export class EmployeeService {
   }
 
   getByFilter(filter: string) {
+    if (filter === '?') {
+      filter = '';
+    }
     return this.http.get('http://staging.tangent.tngnt.co/api/employee/' + filter, this.getHeaders()).map((response: Response) => {
       // login successful if there's a token in the response
       const fil = response.json();
