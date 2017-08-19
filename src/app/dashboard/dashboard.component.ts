@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     this.employeeService.getAll().subscribe(
       employees => {
         this.employees = employees;
-        // console.log(this.employees[0]);
+         console.log(this.employees[0]);
       },
       error => {
         // this.alertService.error(error);

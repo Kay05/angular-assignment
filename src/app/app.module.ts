@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import {AuthGuard} from './guards/index';
 import {UserService, EmployeeService, AuthenticateService} from './services/index';
 import { EmployeeComponent } from './employee/employee.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -20,7 +21,8 @@ import { EmployeeComponent } from './employee/employee.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard',      component: DashboardComponent, canActivate: [AuthGuard] },
-  // { path: 'view-employees',      component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'view-employees',      component: EmployeeComponent, canActivate: [AuthGuard] },
+  { path: 'profile',      component: ProfileComponent, canActivate: [AuthGuard] },
   /*{
     path: 'heroes', component: HeroListComponent,
     data: { title: 'Heroes List' }
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpModule, RouterModule.forRoot(

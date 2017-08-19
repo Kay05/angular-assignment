@@ -1,3 +1,73 @@
-<p>
-  employee works!
-</p>
+<article class="content dashboard-page">
+  <section class="section">
+    <div class="row">
+      <div class="title-search-block">
+        <div class="title-block">
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="title"> View Employees</h3>
+              <p class="title-description"> List of employees with filter - e.g. race, days to birthday, etc... </p>
+            </div>
+          </div>
+        </div>
+        <div class="items-search">
+          <form class="form-inline">
+            <div class="input-group">
+              <input type="text" class="form-control boxed rounded-s xx-search" title="filter by race" placeholder="Race...">
+            </div>
+            <div class="input-group">
+                <input type="number" class="form-control boxed rounded-s xx-search" title="Filter by position" placeholder="Position...">
+            </div>
+            <div class="input-group">
+              <input type="number" class="form-control boxed rounded-s xx-search" title="Filter with start date range" placeholder="Start date range...">
+            </div>
+            <div class="input-group">
+              <input type="number" class="form-control boxed rounded-s xx-search" title="Filter user" placeholder="User...">
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control boxed rounded-s xx-search" title="Filter by gender" placeholder="Gender...">
+            </div>
+            <div class="input-group">
+              <input type="number" class="form-control boxed rounded-s xx-search" title="Filter by birth date range" placeholder="birth date range...">
+            </div>
+            <div class="input-group">
+              <input type="text" class="form-control boxed rounded-s xx-search" title="Filter by email:enter part of email" placeholder="Email...">
+              <span class="input-group-btn">
+                  <button class="btn btn-secondary rounded-s" disabled type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+              </span>
+            </div>
+          </form>
+          <div class="title-block"></div>
+        </div>
+      </div>
+      <div class="col-xl-6" *ngFor="let emp of employees">
+        <div class="card card-success">
+          <div class="card-header">
+            <div class="header-block">
+              <p class="title">{{emp.user.first_name + ' '+ emp.user.last_name}}</p>
+            </div>
+          </div>
+          <div class="card-block">
+            <p class="btn btn-block btn-oval btn-info-outline">  Details</p>
+            <ul class="list-group no-margin">
+              <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-birthday-cake"> </i> Birthday: </span> <b> {{emp.birth_date}}</b></li>
+              <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-phone"> </i> Phone: </span> <b> {{emp.phone_number}}</b></li>
+              <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-male"> </i><i class="fa fa-female"> </i> Gender: </span> <b> {{emp.gender === "M" ? 'Male':'Female'}}</b></li>
+              <li class="list-group-item"><span class="btn btn-success-outline" style="min-width: 150px;"><i class="fa fa-github"> </i> GitHub User: </span> <b> {{emp.github_user}}</b></li>
+            </ul>
+            <!--<button class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal_editItem{{$parent->id}}"><i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-danger pull-right" data-toggle="modal" data-target="#myModal_item{{$parent->id}}"><i class="fa fa-trash"></i> Delete</button>-->
+          </div>
+          <div class="card-footer">
+            <small class="pull-right"><i class="fa fa-envelope"> </i> Email: {{emp.email}}</small>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-xl-6 -->
+      <div class="title-block"></div>
+    </div>
+    <!-- /.row -->
+  </section>
+</article>

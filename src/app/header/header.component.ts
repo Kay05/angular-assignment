@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     this.userService.getMe().subscribe(
       user => {
         this.user = user;
-        console.log(user);
+        console.log(this.user);
       },
       error => {
         // this.alertService.error(error);
