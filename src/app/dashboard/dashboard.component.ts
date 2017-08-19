@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
   }
 
   private loadGen(x) {
-    this.employeeService.getByFilter('?=' + x).subscribe(
+    this.employeeService.getByFilter('?gender=' + x).subscribe(
       employees => {
         if (x === 'M') {
           this.emp_m = employees;
