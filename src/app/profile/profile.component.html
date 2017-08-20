@@ -25,8 +25,8 @@
               <ul class="list-group no-margin">
                 <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-id-card-o"> </i> ID Number: </span> <b> {{emp.id_number}}</b></li>
                 <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-phone"> </i> Phone: </span> <b> {{emp.phone_number}}</b></li>
-                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-male"> </i><i class="fa fa-female"> </i> Gender: </span> <b> {{emp.gender === "M" ? 'Male':'Female'}}</b></li>
-                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-github"> </i> GitHub User: </span> <b> {{emp.github_user}}</b></li>
+                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Age: </span> <b> {{emp.age}}</b></li>
+                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-envelope-o"> </i> Email: </span> <b> {{emp.personal_email}}</b></li>
               </ul>
             </div>
             <div class="col-md-6 col-sm-12">
@@ -47,15 +47,34 @@
             </div>
             <div class="col-md-6 col-sm-12">
               <ul class="list-group no-margin">
-                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> User ID: </span> <b> {{emp.user.id}}</b></li>
-                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Is Active: </span> <b> {{emp.user.is_active}}</b></li>
-                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Is Staff: </span> <b> {{emp.user.is_staff}}</b></li>
-                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Username: </span> <b> {{emp.user.username}}</b></li>
+                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Start Date: </span> <b> {{emp.start_date}}</b></li>
+                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Tax Number: </span> <b> {{emp.tax_number}}</b></li>
+                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Leave Days: </span> <b> {{emp.leave_remaining}}</b></li>
+                <li class="list-group-item"><span class="btn btn-success-outline cst-width"><i class="fa fa-info-circle"> </i> Next Review: </span> <b> {{emp.next_review}}</b></li>
               </ul>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="card sameheight-item">
+                <div class="card-block">
+                  <div class="card-title-block">
+                    <h3 class="title">Employee Reviews and Next of Kin </h3>
+                  </div>
+                  <section class="section">
+                    <h4>Next of kin</h4>
+                    <ul>
+                      <li *ngFor="let kin of emp.employee_next_of_kin"><b>Name:</b> {{kin.name}}, <b>Phone:</b> {{kin.phone_number}}, <b>Relationship:</b> {{kin.relationship}}</li>
+                    </ul>
+                    <h4>Employee Review</h4>
+                    <ul>
+                      <li *ngFor="let rev of emp.employee_review"><b>Date:</b> {{rev.date}}, <b>Salary:</b> <b>R</b>{{rev.salary}}, <b>Type:</b> {{rev.type}}</li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
             </div>
           </div>
           <div class="card-footer">
-            <small class="pull-right"><i class="fa fa-envelope"> </i> Email: {{emp.email}}</small>
+            <small class="pull-right"><i class="fa fa-location-arrow"> </i> Address: {{emp.physical_address}}</small>
           </div>
         </div>
       </div>
