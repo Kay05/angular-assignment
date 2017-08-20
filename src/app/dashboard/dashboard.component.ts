@@ -22,25 +22,22 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.employees = JSON.parse(localStorage.getItem('emps'));
     this.loadMe();
     this.loadAllEmployees();
     this.loadPosition(1);
     this.loadPosition(2);
     this.loadGen('M');
     this.loadGen('F');
-    // console.log('Inside Oninit' + this.employees);
   }
 
   private loadPosition(x) {
     this.employeeService.getByFilter('?position=' + x).subscribe(
       employees => {
-        if (x === 1){
+        if (x === 1) {
           this.emp_fe = employees;
         }else {
           this.emp_be = employees;
         }
-        // console.log(this.employees[0]);
       },
       error => {
         if (error._body) {
@@ -59,7 +56,6 @@ export class DashboardComponent implements OnInit {
         }else {
           this.emp_f = employees;
         }
-        // console.log(this.employees[0]);
       },
       error => {
         if (error._body) {
@@ -71,11 +67,9 @@ export class DashboardComponent implements OnInit {
   }
 
   private loadAllEmployees() {
-     // this.employeeService.getAll().subscribe(employees => { this.employees = employees; });
     this.employeeService.getAll().subscribe(
       employees => {
         this.employees = employees;
-         // console.log(this.employees[0]);
       },
       error => {
         if (error._body) {
@@ -90,7 +84,6 @@ export class DashboardComponent implements OnInit {
     this.employeeService.getMe().subscribe(
       employee => {
         this.employee = employee;
-        // console.log(this.employee);
       },
       error => {
         if (error._body) {

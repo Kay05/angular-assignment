@@ -10,7 +10,6 @@ export class AuthenticateService {
   constructor(private http: Http, private router: Router) { }
 
   login(username: string, password: string) {
-    // console.log('inside login auth -> ' + username + ' -> pass -> ' + password );
     return this.http.post('http://staging.tangent.tngnt.co/api-token-auth/', JSON.stringify({ username: username, password: password }), {headers: this.getHeaders()})
       .map((response: Response) => {
         // login successful if there's a token in the response
@@ -39,9 +38,6 @@ export class AuthenticateService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currUser');
-    localStorage.removeItem('empMe');
-    localStorage.removeItem('emps');
-    localStorage.removeItem('userMe');
     localStorage.removeItem('head');
   }
 }

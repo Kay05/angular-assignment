@@ -12,7 +12,7 @@ export class AppComponent implements OnInit  {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // listenging to routing navigation event
+    // listening to routing navigation event
     this.router.events.subscribe(event => this.modifyHeader(event));
   }
 

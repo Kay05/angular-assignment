@@ -22,7 +22,6 @@ ngOnInit() {
   }
 
   filter() {
-    // console.log('data ->' + this.data.gender + ' the whole thing' + this.data);
     let x = '?';
     x = x + this.encodeUrlData(this.data);
     this.employeeService.getByFilter(x).subscribe(
@@ -53,11 +52,9 @@ ngOnInit() {
   }
 
   private loadAllEmployees() {
-    // this.employeeService.getAll().subscribe(employees => { this.employees = employees; });
     this.employeeService.getAll().subscribe(
       employees => {
         this.employees = employees;
-        // console.log(this.employees[0]);
       },
       error => {
         if (error._body) {

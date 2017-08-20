@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService, location: Location, router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currUser'));
     router.events.subscribe((val) => {
-      if(location.path() !== '') {
+      if (location.path() !== '') {
         this.p = location.path();
       } else {
         this.p = '/dashboard';
@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
         console.log(this.user);
       },
       error => {
-        // this.alertService.error(error);
         console.log('Errrorrrrr!!!!!');
       });
   }

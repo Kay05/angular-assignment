@@ -9,7 +9,6 @@ import {AuthenticateService, AlertService} from '../services/index';
 })
 export class LoginComponent implements OnInit {
   title = 'Angular App';
-  // user: any = {};
   loading = false;
   returnUrl: string;
 

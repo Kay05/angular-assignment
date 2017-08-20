@@ -11,7 +11,7 @@ export class UserService {
   // private helper methods
 
   private getHeaders() {
-    // create authorization header with jwt token
+    // create authorization header with token
     const currentUser = JSON.parse(localStorage.getItem('currUser'));
     if (currentUser && currentUser.token) {
       const headers = new Headers({ 'Authorization': 'Token ' + currentUser.token });
